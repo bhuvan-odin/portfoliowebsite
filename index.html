@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal portfolio website</title>
+    <!--link type="text/css" href="/css/style.css" -->
+    <script src="https://kit.fontawesome.com/12d355f6e1.js" crossorigin="anonymous"></script>
+</head>
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins','sans-serif';
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    background: #080808;
+    color: #fff;
+}
+#header{
+    width: 100%;
+    height: 100vh;
+    background-image: url("images/background.jpg");
+    background-size:cover;
+    background-position: center;
+}
+
+.container{
+    padding: 10px 10%;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.logo{
+width: 140px;
+}
+
+nav ul li{
+    display: inline-block;
+    list-style:none;
+    margin: 10px 20px;
+
+}
+
+nav ul li a{
+    color: #fff;
+    text-decoration: none;
+    font-size:18px;
+    position: relative; 
+}
+
+nav ul li a::after{
+    content:'';
+    width: 0;
+    height:3px;
+    background: #ff004f;
+    position :absolute;
+    left:0;
+    bottom:-6px;
+    transition:0.5s;
+}
+nav ul li a:hover::after{
+    width:100%;
+}
+.header-text{
+    margin-top:20%;
+    font-size: 30px;
+}
+
+.header-text h1{
+    font-size:60px;
+    margin-top:20px;
+
+}
+
+.header-text h1 span{
+    color: #ff004f;
+}
+
+/* -------------about------------- */
+#about{
+    padding: 80px 0;
+    color:#ababab;
+}
+.row{
+    display:flex;
+    justify-content: space-between ;
+    flex-wrap: wrap;
+}
+
+.about-col-1{
+    flex-basis:35%;
+}
+.about-col-1 img{
+    width: 50%;
+    border-radius:15px;
+}
+.about-col-2{
+    flex-basis: 100%;
+}
+
+.sub-title{
+    font-size:60px;
+    font-weight:600;
+    color: #fff;
+}
+
+.tab-titles{
+    display:flex;
+    margin:20px 0 40px;
+}
+.tab-links{
+    margin-right: 50px;
+    font-size:18px;
+    font-weight: 500;
+    cursor: pointer;
+    position:relative;
+}
+.tab-links::after{
+    content:'';
+    width:0;
+    height:3px;
+    background:#ff004f;
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    transition:0.5s;
+}
+.tab-links.active-link::after{
+    width:50%;
+
+}
+
+.tab-contents ul li{
+    list-style:none;
+    margin:10px 0;
+}
+.tab-contents ul li span{
+    color:#b54769;
+    font-size: 14px;
+}
+.tab-contents{
+    display: none;
+}
+
+.tab-contents.active-tab{
+    display:block;
+}
+/*-------------services---------------*/
+#services{
+    padding:30px 0;
+}
+.services-list{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    grid-gap:40px;
+    margin-top:50px;
+
+}
+
+.services-list div{
+    background:#262626;
+    padding:40px;
+    font-size:13px;
+    font-weight:300;
+    border-radius:10px;
+    transition: background 0.5s,transform 0.5s;
+}
+
+.services-list div h2{
+    font: size 20px 20px;
+    font-weight:500;
+    margin-bottom:15px;
+}
+.services-list div a{
+    text-decoration:none;
+    color:#fff;
+    font-size:12px;
+    margin-top:20px;
+    display:inline-block;
+}
+
+.services-list div:hover{
+    background: #ff004f;
+    transform:translateY(-10px);
+}
+
+/*------------------portfolio--------------*/
+#portfolio{
+    padding: 30px 0;
+}
+
+.work-list{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    grid-gap:40px;
+    margin-top:50px;
+
+}
+.work{
+    border-radius:10px;
+    position:relative;
+    overflow:hidden;
+}
+.work img{
+    width:100%;
+    border-radius:10px;
+    display:block;
+    transition: transform 0.5s;
+}
+.layer{
+    width:100%;
+    height:0;
+    background: linear-gradient(rgba(0,0,0,0.6),#ff004f);
+    border-radius:10px;
+    position:absolute;
+    left:0;
+    bottom:0;
+    overflow:hidden;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding:0 40px;
+    text-align: center;
+    transition: height 0.5s;
+
+}
+.layer h3{
+    font-weight:500;
+    margin-bottom: 20px;
+}
+.layer a{
+    margin-top: 20px;
+    color:#ff004f;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 60px;
+    background: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    text-align: center;
+}
+.work:hover img{
+    transform:scale(1.1);
+
+}
+.work:hover .layer{
+    height:100%;
+}
+.btn{
+    display: block;
+    margin: 50px auto;
+    width: fit-content;
+    border: 1px solid #ff004f;
+    padding: 14px 50px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #fff;
+    transition: background 0.5s;
+}
+.btn:hover{
+    background:#ff004f;
+}
+/*------------contact-------------*/
+.contact-left{
+    flex-basis: 35%;
+}
+.contact-right{
+    flex-basis:60%;
+
+}
+.contact-left p{
+    margin-top:30px;
+
+}
+.contact-left p i{
+    color:#ff004f;
+    margin-right: 15px;
+    font-size: 25px;
+}
+.social-icons{
+    margin-top:30px;
+}
+.social-icons a{
+    text-decoration: none;
+    font-size: 30px;
+    margin-right: 15px;
+    color:#ababab;
+    display: inline-block;
+    transition: transform 0.5ss;
+}
+.social-icons a:hover{
+    color:#ff004f;
+    transform: translateY(-5px);
+}
+.btn.btn2{
+    display: inline-block;
+    background: #ff004f;
+
+}
+.contact-right form{
+    width:100%;
+}
+form input, form textarea{
+    width: 100%;
+    border: 0;
+    outline: none;
+    background: #262626;
+    padding: 15px;
+    margin: 15px 0;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 6px;
+}
+.form .btn2{
+    padding: 14px 60px;
+    font-size: 18px;
+    margin-top: 20px;
+    cursor:pointer;
+
+}
+.copyright{
+    width:100%;
+    text-align:center;
+    padding:25px 0;
+    background:#262626;
+    font-weight: 300;
+    margin-top: 20px;
+}
+/*-------------------css for small screen------------------------*/
+nav .fas{
+    display: none;
+}
+/*-----------------------------------------------*/
+/* Checkbox styles */
+.contact-right form div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+}
+
+label {
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 0;
+  flex-grow: 1;
+}
+
+button[type="submit"] {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #555;
+}
+
+
+
+/*----------------------------------*/
+
+@media only screen and (max-width: 600px){
+    #header{
+        background-image: url(images/background.jpg);
+        height: 400px;
+        width: auto;
+    }
+    .header-text{
+        margin-top: 100%;
+        font-size: 16px;
+
+    }
+    .header-text h1{
+        font-size: 30px;
+    }
+    nav .fas{
+        display: block;
+        font-size: 25px;
+    }
+    
+    nav ul{
+        background: #ff004f;
+        position: fixed;
+        top: 0;
+        right: -200px;
+        width: 200px;
+        height: 100vh;
+        padding-top: 50px;
+        z-index:2;
+        transition: right 0.5s;
+    }
+    nav ul li{
+        display: block;
+        margin: 25px;
+    }
+    nav ul .fas{
+        position: absolute;
+        top: 50px;
+        left: 100px;
+        cursor: pointer;
+    }
+    .sub-title{
+        font-size: 40px;
+    }
+    .about-col-1, .about-col-2{
+        flex-basis:100%;
+    }
+    .about-col-1{
+        margin-bottom:30px;
+    }
+    .about-col-2{
+        font-size:14px;
+    }
+    .tab-links{
+        font-size:16px;
+        margin-right: 20px;
+    }
+    .contact-left,.contact-right{
+        flex-basis:100%;
+    }
+    .copyright{
+        font-size:14px;
+    }
+}
+#msg{
+    color:#61b752;
+    margin-top: -40px;
+    display: block;
+}
+</style>
+<body>
+<div id="header">
+    <div class="container">
+        <nav>
+            <img src="./images/logo.png" class="logo">
+            <ul id="sidemenu">
+                <li><a href="#header">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <i class="fas fa-times" onclick="closemenu()"></i>
+            <ul>
+            <i class="fas fa-bars" onclick="openmenu()"></i>
+        </nav>
+        <div class="header-text">
+            <p>Photographer</p>
+            <h1>Hi,I'm <span>Kevin</span><br>From Hyderabad</h1>
+        </div>
+    </div>
+</div>
+<!--------------about--------------->
+<div id="about">
+    <div class="row">
+        <div class="container">
+            <div class="about-col-1">
+                <!-- <img src="./images/user.png"> -->
+            </div>
+            <div class="about-col-2">
+                <h1 class="sub-title">About Me</h1>
+                <p>I'm Kevin, a passionate photographer based in Hyderabad, 
+                    specializing in Architectural Photography. 
+                    Through my lens, I transform ordinary moments into timeless visual
+                    stories that evoke emotion and inspire connection.</p>
+                <div class="tab-titles">
+                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                    <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                    <p class="tab-links" onclick="opentab('education')">Education</p>
+                </div>
+                <div class="tab-contents active-tab" id="skills">
+                    <ul>
+                        <li><span>Photography Techniques</span><br>Great knowledge on photography</li>
+                        <li><span>Editing and Post-Processing</span><br>Photo Editing on Photoshop</li>
+                        <li><span>Creativity</span><br>Unique and Creative photographer</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="experience">
+                    <ul>
+                        <li><span>2021-current</span><br>Freelancer photographer and editer</li>
+                        <li><span>2019-2021</span><br>Senior photographer at Megadigital</li>
+                        <li><span>2018-2019</span><br>Assosiate photographer at Megadigital</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="education">
+                    <ul>
+                        <li><span>2018</span><br>B.Des from NID Ahmedabad.</li>
+                        <li><span>2016</span><br>12th from Narayana Junior College.</li>
+                        <li><span>2015</span><br>10th from Narayana Olympiad School.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!----------------services------------>
+<div id="services">
+    <div class="container">
+        <h1 class="sub-title">My Services</h1>
+        <div class="services-list">
+            <div>
+                <h2>Professional Photographer.</h2>
+                <p>"Welcome to my world of photography artistry! With a passion for capturing life's most beautiful moments,
+                     I blend creativity and technical expertise to craft stunning visual narratives.
+                      My commitment to excellence ensures that every photo I take exudes quality and efficiency.
+                       Whether you're seeking captivating portraits, breathtaking landscapes, or dynamic event coverage, 
+                       I'm dedicated to delivering exceptional results that truly speak for themselves. 
+                    Explore the magic behind my lens and let's create memorable stories together. Learn more about my services below."</p>
+                <a href="#">Learn more</a>
+            </div>
+            <div>
+                <h2>Nuptial Photographer</h2>
+                <p>"Capturing the love stories of a lifetime with a blend of artistic flair and technical precision is my passion. 
+                    As a wedding photographer, I bring not only a keen creative eye but also extensive technical expertise in the realm of cameras.
+                     My mission is to provide you with more than just high-quality services. 
+                     I'm dedicated to crafting unforgettable moments that will be cherished for generations to come. 
+                    Discover how I can turn your special day into a timeless visual narrative. Learn more about my services below."</p>
+                <a href="#">Learn more</a>
+            </div>
+            <div>
+                <h2>Photo Editer and Creative Visionary</h2>
+                <p>I am a photographer with a passion for transforming ordinary moments into extraordinary works of art.
+                     With a keen eye for detail, a mastery of photography techniques, and extensive knowledge of cameras, 
+                     I offer high-quality services that result in stunning visual storytelling. Whether you're looking to enhance your photos, 
+                     bring out their hidden beauty, or create captivating compositions, I'm here to turn your vision into reality.
+                     Explore the world of limitless possibilities with me. Learn more about my services below."</p>
+                <a href="#">Learn more</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-------------------portfolio------------ -->
+<div id="portfolio">
+    <div class="container">
+    <h1 class="sub-title">My Work</h1>
+    <div class="work-list">
+        <div class="work">
+            <img src="images/work-1.png">
+            <div class="layer">
+                <h3>Street Photographer</h3>
+                <p>random clicks on streets which dipicts the beauty of our world</p>
+                <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+        </div>
+        <div class="work">
+            <img src="images/work-2.png">
+            <div class="layer">
+                <h3>Wedding Photography</h3>
+                <p>Capturing important movements of life</p>
+                <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                
+            </div>
+        </div>
+        <div class="work">
+            <img src="images/work-3.png">
+            <div class="layer">
+                <h3>Wild life Photography</h3>
+                <p>Catching the beautiful movements of the nature</p>
+                <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+        </div>
+
+    </div>
+    <a href="#" class="btn">See more</a>
+    </div>
+</div>
+<!----------------------contact---------------->
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Me</h1>
+                <p><i class="fa-solid fa-envelope"></i></i>Kavin@gmail.com</p>
+                <p><i class="fa-solid fa-phone"></i>0123456789</p>
+                <div class="social-icons">
+                    <a href=""><i class="fa-brands fa-facebook"></i></a>
+                    <a href=""><i class="fa-brands fa-square-instagram"></i></a>
+                    <a href=""><i class="fa-brands fa-square-x-twitter"></i></a>
+                    <a href=""><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+                <a href="images/my-cv.pdf" download class ="btn btn2">Download Cv</a>
+            </div>
+            <div class="contact-right">
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" rows="6" placeholder="Your Message"></textarea>
+                    
+                        
+                      
+                        <div>
+                          <input type="checkbox" id="scales" name="scales" checked />
+                          <label for="scales">Do you want us to reach you on mail!</label>
+                        </div>
+                      
+                        <div>
+                          <input type="checkbox" id="horns" name="horns" />
+                          <label for="horns">do you like to book an appointment.</label>
+                        </div>
+                    
+                    
+                    
+                    <button type="submit" class="btn btn2">Submit</button>
+
+                </form>
+                <span id="msg"></span>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>© Kevin 2023 All Rights Reserved.</p>
+    </div>
+
+</div>
+
+<script>
+
+    var tablinks=document.getElementsByClassName("tab-links");
+    var tabcontents=document.getElementsByClassName("tab-contents");
+    function opentab(tabname){
+        for(tablink of tablinks){
+            tablink.classList.remove("active-link");
+        }
+        for(tabcontent of tabcontents){
+            tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    }
+</script>
+<script>
+    var sidemeu =document.getElementById("sidemenu");
+
+    function openmenu(){
+        sidemeu.style.right="0";
+
+    }
+    function closemenu(){
+        sidemeu.style.right="1";
+    }
+
+
+
+
+</script>
+
+  
+<script>
+    //const scriptURL = 'https://script.google.com/macros/s/AKfycbxl4woA6Rz4nIKmHb4PpCyCQ6TaHA_jlOhlHLu6Qlz3HHsPPCjPjs_rNIrJ78gpLUax/exec'
+    const scriptURL = 'http://localhost:3000/app/message'
+    const form = document.forms['submit-to-google-sheet']
+    const msg=document.getElementById("msg")
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      const formData = new FormData(form);
+      const jsonData = Object.fromEntries(formData.entries())
+      fetch(scriptURL, { 
+            method: 'POST', 
+            headers: {
+                "Content-Type": "application/json"
+            }, 
+            body: JSON.stringify(jsonData)
+        })
+        .then(response => {
+            msg.innerHTML="Message sent successfully"
+            setTimeout(function(){
+                msg.innerHTML=""
+            },5000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+</body>
+</html>
